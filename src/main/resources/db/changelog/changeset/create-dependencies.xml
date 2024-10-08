@@ -1,0 +1,31 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="create-dependencies" author="Burkova">
+       <addForeignKeyConstraint baseTableName="person"
+                                baseColumnNames="id"
+                                deferrable="true"
+                                initiallyDeferred="true"
+                                onUpdate="CASCADE"
+                                constraintName="ref_house_person"
+                                referencedTableName="house"
+                                referencedColumnNames="id"
+                                deleteCascade="true"/>
+        <addUniqueConstraint  columnNames="person_id"
+                              constraintName="const_name_car"
+                              deferrable="true"
+                              disabled="true"
+                              initiallyDeferred="true"
+                              tableName="car"
+                              validate="true"/>
+        <addUniqueConstraint columnNames="person_id"
+                             constraintName="const_name_passp"
+                             deferrable="true"
+                             disabled="true"
+                             initiallyDeferred="true"
+                             tableName="passport"
+                             validate="true"/>
+    </changeSet>
+</databaseChangeLog>

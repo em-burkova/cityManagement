@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - property:
+      dbms: postgresql
+      name: now
+      value: now()
+  - changeSet:
+      id: create-person
+      author: burkova
+      changes:
+        - insert:
+            tableName: person
+            columns:
+              - column:
+                  name: name
+                  value: 'Vasya'
+              - column:
+                  name:  gender
+                  value:  MALE
+              - column:
+                  name:  creation_date
+                  value:  ${now}
+        - insert:
+            tableName: passport
+            columns:
+              - column:
+                  name: series
+                  value: 1111
+              - column:
+                  name: number
+                  value: 222222
+              - column:
+                  name: person_id
+                  value: 1
+        - insert:
+            tableName: car
+            columns:
+              - column:
+                  name: person_id
+                  value: 1
+              - column:
+                  name: model
+                  value: 'bmw'
+              - column:
+                  name: creation_date
+                  value: ${now}
+        - insert:
+            tableName: house
+            columns:
+              - column:
+                  name: street
+                  value: 'yamskaya'
+              - column:
+                  name: number
+                  value: 4
+        - insert:
+           tableName: ref_house_person
+           columns:
+             - column:
+                 name: person_id
+                 value: 1
+             - column:
+                 name: house_id
+                 value: 1
