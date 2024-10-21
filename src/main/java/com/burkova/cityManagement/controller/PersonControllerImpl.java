@@ -57,12 +57,12 @@ public class PersonControllerImpl {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping("/allpersonsonthesamestreet")
-    public ResponseEntity<List<PersonResponseDTO>> findAllPersonsOnTheSameStreet(@PathParam("street") String street) {
+    @GetMapping("/all/street")
+    public ResponseEntity<List<PersonResponseDTO>> findAllPersonsOnTheSameStreet(@PathParam("name") String street) {
         return new ResponseEntity<>(PersonMapper.INSTANCE.mapToPersonDTO(personService.findAllPersonsOnTheSameStreet(street.toLowerCase())), HttpStatus.OK);
     }
 
-    @GetMapping("/allmalepassportssurnamestartswithletter")
+    @GetMapping("/all/male/passports/starts")
     public ResponseEntity<List<PersonResponseDTO>> findAllMalePassportsSurnameStartsWithLetter(@PathParam("letter") String letter) {
         return new ResponseEntity<>(PersonMapper.INSTANCE.mapToPersonDTO(personService.findAllMalePassportsSurnameStartsWithLetter(letter)), HttpStatus.OK);
     }

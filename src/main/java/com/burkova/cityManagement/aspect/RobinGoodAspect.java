@@ -17,6 +17,8 @@ public class RobinGoodAspect {
 
     //todo: имплементировать репо, в нём создать метод "персон без машин" и среди них выбирать (афтер)
 
+
+
     @Before(value = "@annotation(com.burkova.cityManagement.aspect.RobinGood)")
     @SneakyThrows
     public void hasCar(ProceedingJoinPoint proceedingJoinPoint) {

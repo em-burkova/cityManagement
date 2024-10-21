@@ -29,5 +29,4 @@ public class Car {
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person person;
 
-
 }

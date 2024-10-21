@@ -14,7 +14,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     @Query("SELECT p, h.street FROM Person p INNER JOIN House h on h.street =:street ")
     List<Person> findAllPersonsOnTheSameStreet(@Param("street")String address);
 
-    @Query(value = "SELECT * FROM passport INNER JOIN person p on p.id = passport.person_id WHERE p.gender = 'MALE' AND p.name like '(:letter)%' ", nativeQuery = true)
+    @Query(value = "SELECT * FROM passport INNER JOIN person p on p.id = passport.person_id WHERE p.gender = 'MALE' AND p.name ilike '(:letter)%' ", nativeQuery = true)
     List<Person> findAllMalePassportsSurnameStartsWithLetter(@Param("letter")String letter);
 
 }

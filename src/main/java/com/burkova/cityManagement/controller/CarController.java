@@ -25,8 +25,10 @@ public class CarController {
     }
 
     @GetMapping("/{id}")
-    public Car getCar(@PathVariable Long id) {
-        return carService.getCar(id);
+    public ResponseEntity<CarDTO> getCar(@PathVariable Long id) {
+        Car car = carService.getCar(id);
+        CarDTO result = CarMapper.INSTANCE.mapToDTO(car);
+        return new ResponseEntity<>(result,HttpStatus.OK);
     }
 
     @PutMapping("/update")
