@@ -1,6 +1,7 @@
 package com.burkova.cityManagement.service.impl;
 
 import com.burkova.cityManagement.exceptions.EntityNotFoundException;
+import com.burkova.cityManagement.exceptions.NameContainsNumbersException;
 import com.burkova.cityManagement.model.Passport;
 import com.burkova.cityManagement.model.Person;
 import com.burkova.cityManagement.repository.PersonRepository;
@@ -22,18 +23,17 @@ public class PersonServiceImpl implements PersonService {
 
     private final PersonRepository personRepository;
     private final PassportServiceImpl passportServiceImpl;
-    @Lazy
-    @Autowired
-    private MockPersonServiceImpl mockPersonService;
 
     @Transactional()
     public Person createPerson(Person person) {
+
         Passport passport = passportServiceImpl.createSeriesAndNumber();
         person.setPassport(passport);
-        passport.setId(person.getId());
         Date current = new Date();
         person.setCreationDate(current);
+
         Person savedPerson = personRepository.save(person);
+        passport.setId(person.getId());
         passport.setPerson(savedPerson);
         return savedPerson;
     }

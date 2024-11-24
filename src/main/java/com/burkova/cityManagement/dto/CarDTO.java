@@ -12,4 +12,5 @@ public class CarDTO {
     private Long id;
     private String model;
     private Date creationDate;
+    private String number;
 }

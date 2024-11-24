@@ -1,5 +1,6 @@
 package com.burkova.cityManagement.controller;
 
+
 import com.burkova.cityManagement.dto.PersonRequestCreateDTO;
 import com.burkova.cityManagement.dto.PersonResponseDTO;
 import com.burkova.cityManagement.mapper.PersonMapper;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 public class PersonControllerImpl {
 
+    //mockMVC json.. model postman object = service.. mock only for repository
     private final PersonService personService;
 
     public PersonControllerImpl(@Qualifier("personServiceImpl") PersonService personService) {
@@ -50,8 +52,8 @@ public class PersonControllerImpl {
         personService.delete(id);
     }
 
-    @GetMapping("/")
-    public ResponseEntity<PersonResponseDTO> getPerson(@PathParam("id") Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<PersonResponseDTO> getPerson(@PathVariable("id") Long id) {
         Person person = personService.getPerson(id);
         PersonResponseDTO result = PersonMapper.INSTANCE.mapToDTO(person);
         return new ResponseEntity<>(result, HttpStatus.OK);

@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-carNumber-toCar
+      author: burkova
+      changes:
+        - addColumn:
+            tableName: car
+            columns:
+              - column:
+                  name: number
+                  type: varchar(255)
+        - update:
+            tableName: car
+            columns:
+              - column:
+                  name: model
+                  value: 'bmw'
+              - column:
+                  name: number
+                  value: '064'

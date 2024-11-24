@@ -1,8 +1,8 @@
 package com.burkova.cityManagement.controller;
 
+
 import com.burkova.cityManagement.dto.CarDTO;
 import com.burkova.cityManagement.mapper.CarMapper;
-import com.burkova.cityManagement.mapper.PersonMapper;
 import com.burkova.cityManagement.model.Car;
 import com.burkova.cityManagement.service.CarService;
 import jakarta.websocket.server.PathParam;

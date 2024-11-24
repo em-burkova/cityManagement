@@ -21,6 +21,7 @@ public class Person {
     @Enumerated(EnumType.STRING)
     private Gender gender;
    // private int age;
+    @JoinColumn(name = "bank_account_sum")
     private Long bankAccountSum;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date creationDate;

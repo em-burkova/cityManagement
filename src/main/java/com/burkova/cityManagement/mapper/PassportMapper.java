@@ -1,5 +1,6 @@
 package com.burkova.cityManagement.mapper;
 
+
 import com.burkova.cityManagement.dto.PassportDTO;
 import com.burkova.cityManagement.model.Passport;
 import org.mapstruct.Mapper;

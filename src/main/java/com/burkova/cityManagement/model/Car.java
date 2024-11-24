@@ -21,7 +21,8 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String model;
-//    private double cost;
+    private String number;
+//    private double price;
 //    private String licensePlate;
     @DateTimeFormat(pattern = "YYYY-dd-MM")
     private Date creationDate;

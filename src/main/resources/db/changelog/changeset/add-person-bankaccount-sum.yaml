@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-person-bankaccount-sum
+      author: burkova
+      changes:
+        - update:
+            tableName: person
+            columns:
+              - column:
+                    name: name
+                    value: 'Vasya'
+              - column:
+                  name: bank_account_sum
+                  value: 5001

@@ -1,7 +1,6 @@
 package com.burkova.cityManagement.service;
 
 import com.burkova.cityManagement.model.Person;
-
 import java.util.List;
 
 public interface PersonService {
@@ -13,4 +12,5 @@ public interface PersonService {
     Person getPerson(Long id);
     List<Person> findAllPersonsOnTheSameStreet(String street);
     List<Person> findAllMalePassportsSurnameStartsWithLetter(String letter);
+
 }
